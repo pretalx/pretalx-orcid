@@ -1,0 +1,3 @@
+recursive-include pretalx_orcid/static *
+recursive-include pretalx_orcid/templates *
+recursive-include pretalx_orcid/locale *
