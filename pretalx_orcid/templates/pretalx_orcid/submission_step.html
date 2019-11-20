@@ -1,0 +1,35 @@
+{% extends "cfp/event/submission_base.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load orga_edit_link %}
+{% load rich_text %}
+{% load rules %}
+
+{% block inner %}
+    <div class="d-flex">
+      <h2>{% trans "ORCID Login" %}</h2>
+    </div>
+    <p>
+      {% blocktrans trimmed %}
+      If you want to, you can authenticate with ORCID – your name, organisation, and ORCID ID will be pre-filled from your ORCID account.
+      {% endblocktrans %}
+    </p>
+    <a id="connect-orcid-button" href="{{ orcid_url }}"><img id="orcid-id-icon" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID iD icon"/>Register or Connect your ORCID iD</a>
+{% endblock %}
+
+{% block buttons %}
+        <div class="row wizard-row">
+            <div class="col-md-3 ml-auto">
+                <button type="submit" class="btn btn-block btn-outline-success btn-lg">
+                    {% trans "Continue without ORCID" %} &raquo;
+                </button>
+            </div>
+            <div class="col-md-3">
+                {% if prev_url %}
+                    <a href="{{ prev_url }}" class="btn btn-block btn-info btn-lg">
+                        &laquo; {% trans "Back" %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.utils.translation import gettext_lazy
+from django.utils.translation import gettext_lazy as _
 
 
 class PluginApp(AppConfig):
@@ -7,14 +7,39 @@ class PluginApp(AppConfig):
     verbose_name = "ORCID integration"
 
     class PretalxPluginMeta:
-        name = gettext_lazy("ORCID integration")
+        name = _("ORCID integration")
         author = "Tobias Kunze"
-        description = gettext_lazy("Gather speaker data from ORCID")
+        description = _("Gather speaker data from ORCID")
         visible = True
         version = "0.0.0"
 
     def ready(self):
         from . import signals  # NOQA
+
+    def installed(self, event):
+        from pretalx.submission.models import Question
+
+        question = None
+        if event.settings.orcid_question_organisation:
+            question = Question.all_objects.filter(
+                pk=event.settings.orcid_question_organisation, event=event
+            ).first()
+        if not question:
+            question = Question(event=event, target="speaker", question="Organisation",)
+        question.is_public = True
+        question.active = True
+        question.save()
+
+    def uninstalled(self, event):
+        from pretalx.submission.models import Question
+
+        if event.settings.orcid_question_organisation:
+            question = Question.all_objects.filter(
+                pk=event.settings.orcid_question_organisation, event=event
+            ).first()
+        if question:
+            question.active = False
+            question.save()
 
 
 default_app_config = "pretalx_orcid.PluginApp"
