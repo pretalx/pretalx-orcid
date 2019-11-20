@@ -22,7 +22,7 @@ class OrcidFlowInitial(TemplateFlowStep):
         result = super().get_context_data(**kwargs)
         result["orcid_url"] = (
             AUTHORIZE_URL
-            + f"client_id={client_id}&response_type=code&scope=/authenticate&redirect_uri={url}"
+            + f"?client_id={client_id}&response_type=code&scope=/authenticate&redirect_uri={url}"
         )
         return result
 
