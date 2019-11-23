@@ -1,13 +1,14 @@
 import requests
 from django.contrib import messages
+from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
-from pretalx.common.mixins.views import PermissionRequired
 from pretalx.cfp.flow import TemplateFlowStep
+from pretalx.common.mixins.views import PermissionRequired
 
 from .forms import OrcidSettingsForm
 from .models import OrcidProfile
-from .orcid import AUTHORIZE_URL, OAUTH_URL, get_oauth_url
+from .orcid import AUTHORIZE_URL, OAUTH_URL, ORCID_URL, get_oauth_url
 
 
 class OrcidFlowInitial(TemplateFlowStep):
@@ -105,7 +106,7 @@ def orcid_oauth(request, event):
         response.json()
     )  # access_token, refresh_token, expires_in, scope, orcid, name
     person_response = requests.get(
-        BASE_URL + "/v2.0/" + orcid_data["orcid"],
+        ORCID_URL + "/v2.0/" + orcid_data["orcid"],
         headers={"accept": "application/json"},
     ).json()
     orcid_organisation = None
