@@ -40,10 +40,7 @@ class OrcidFlowInitial(TemplateFlowStep):
         return True
 
     def done(self, request):
-        if not hasattr(request.user, "orcid_profile"):
-            profile = OrcidProfile.objects.create(user=request.user)
-        else:
-            profile = request.user.orcid_profile
+        profile = getattr(request.user, "orcid_profile", OrcidProfile.objects.create(user=request.user))
         data = self.cfp_session.get("data", {})
         for key in ("orcid", "access_token", "refresh_token", "scope", "expires_in"):
             setattr(profile, key, data.get(f"orcid_{key}"))

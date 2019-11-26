@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-29 03:29+0000\n"
+"POT-Creation-Date: 2019-11-25 01:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: local/pretalx-plugin-cookiecutter/pretalx-orcid/pretalx_orcid/__init__.py:10
+#: local/pretalx-orcid/pretalx_orcid/__init__.py:10
 msgid "ORCID integration"
 msgstr ""
 
-#: local/pretalx-plugin-cookiecutter/pretalx-orcid/pretalx_orcid/__init__.py:12
+#: local/pretalx-orcid/pretalx_orcid/__init__.py:12
 msgid "Gather speaker data from ORCID"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/forms.py:8
+msgid "Client ID"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/forms.py:9
+msgid "Client Secret"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/models.py:10
+msgid "ORCID"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/signals.py:35
+msgid ""
+"Please configure your ORCID access settings or disable the ORCID plugin!"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/settings.html:7
+msgid "Set up ORCID integration"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/settings.html:9
+#, python-format
+msgid ""
+"Please go to the <a href=\"%(link)s\" target=_blank rel=noopener>ORCID "
+"developer tools</a> to acquire your API credentials. Please enter this URL "
+"as your redirect URL:"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/settings.html:28
+msgid "Save"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:10
+msgid "ORCID Login"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:13
+msgid ""
+"If you want to, you can authenticate with ORCID – your name, organisation, "
+"and ORCID ID will be pre-filled from your ORCID account."
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:24
+msgid "Continue without ORCID"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:30
+msgid "Back"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/views.py:51
+msgid "ORCID login"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/views.py:77
+msgid "The ORCID token has been saved."
 msgstr ""
