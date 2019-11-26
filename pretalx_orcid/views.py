@@ -1,3 +1,5 @@
+import json
+
 import requests
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -8,7 +10,7 @@ from pretalx.common.mixins.views import PermissionRequired
 
 from .forms import OrcidSettingsForm
 from .models import OrcidProfile
-from .orcid import AUTHORIZE_URL, OAUTH_URL, ORCID_URL, get_oauth_url, API_URL
+from .orcid import API_URL, AUTHORIZE_URL, OAUTH_URL, ORCID_URL, get_oauth_url
 
 
 class OrcidFlowInitial(TemplateFlowStep):
@@ -43,8 +45,11 @@ class OrcidFlowInitial(TemplateFlowStep):
         self.request = request
         profile = getattr(request.user, "orcid_profile", None) or OrcidProfile.objects.create(user=request.user)
         data = self.cfp_session.get("data", {})
-        for key in ("orcid", "access_token", "refresh_token", "scope", "expires_in"):
-            setattr(profile, key, data.get(f"orcid_{key}"))
+        for key in ("orcid", "access_token", "refresh_token", "scope", "expires_in", "data"):
+            value = data.get(f"orcid_{key}")
+            if value:
+                setattr(profile, key, value)
+        print(profile.__dict__)
         profile.save()
 
     @property
@@ -120,6 +125,12 @@ def orcid_oauth(request, event):
 
     request.session.modified = True
     tmpid = request.session["orcid_active"]
+    data = request.session["cfp"][tmpid].get("data", {})
+
+    data["orcid_data"] = json.dumps(person_response)
+    for key, value in orcid_data.items():
+        data[f"orcid_{key}"] = value
+
     initial = request.session["cfp"][tmpid].get("initial", {})
     user_initial = initial.get("user", {})
     profile_initial = initial.get("profile", {})

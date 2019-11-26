@@ -14,3 +14,5 @@ class OrcidProfile(models.Model):
     refresh_token = models.CharField(null=True, blank=True, max_length=40)
     scope = models.CharField(null=True, blank=True, max_length=40)
     expires_in = models.CharField(null=True, blank=True, max_length=20)
+
+    data = models.TextField(null=True)
