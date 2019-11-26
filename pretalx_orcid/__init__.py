@@ -11,7 +11,7 @@ class PluginApp(AppConfig):
         author = "Tobias Kunze"
         description = _("Gather speaker data from ORCID")
         visible = True
-        version = "0.0.0"
+        version = "0.0.1"
 
     def ready(self):
         from . import signals  # NOQA
