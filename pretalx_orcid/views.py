@@ -8,7 +8,7 @@ from pretalx.common.mixins.views import PermissionRequired
 
 from .forms import OrcidSettingsForm
 from .models import OrcidProfile
-from .orcid import AUTHORIZE_URL, OAUTH_URL, ORCID_URL, get_oauth_url
+from .orcid import AUTHORIZE_URL, OAUTH_URL, ORCID_URL, get_oauth_url, API_URL
 
 
 class OrcidFlowInitial(TemplateFlowStep):
@@ -36,10 +36,11 @@ class OrcidFlowInitial(TemplateFlowStep):
         request.session["orcid_active"] = request.resolver_match.kwargs["tmpid"]
         return super().get(request)
 
-    def is_completed(self):
+    def is_completed(self, request):
         return True
 
     def done(self, request):
+        self.request = request
         profile = getattr(request.user, "orcid_profile", OrcidProfile.objects.create(user=request.user))
         data = self.cfp_session.get("data", {})
         for key in ("orcid", "access_token", "refresh_token", "scope", "expires_in"):
@@ -103,8 +104,8 @@ def orcid_oauth(request, event):
         response.json()
     )  # access_token, refresh_token, expires_in, scope, orcid, name
     person_response = requests.get(
-        ORCID_URL + "/v2.0/" + orcid_data["orcid"],
-        headers={"accept": "application/json"},
+        API_URL + "/v2.0/" + orcid_data["orcid"] + "/record",
+        headers={"accept": "application/json", "access token": orcid_data["access_token"], "Authorization type": "Bearer"},
     ).json()
     orcid_organisation = None
     employments = (
@@ -131,5 +132,8 @@ def orcid_oauth(request, event):
     questions_initial[
         f"question_{request.event.settings.orcid_question_organisation}"
     ] = orcid_organisation
+    initial["user"] = user_initial
+    initial["profile"] = profile_initial
+    initial["questions"] = questions_initial
     request.session["cfp"][tmpid]["initial"] = initial
-    return redirect(request.event.cfp.urls.submit.full() + tmpid + "/questions/")
+    return redirect(request.event.cfp.urls.submit + tmpid + "/questions/")

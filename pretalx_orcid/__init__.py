@@ -29,6 +29,7 @@ class PluginApp(AppConfig):
         question.is_public = True
         question.active = True
         question.save()
+        event.settings.orcid_question_organisation = question.pk
 
     def uninstalled(self, event):
         from pretalx.submission.models import Question
