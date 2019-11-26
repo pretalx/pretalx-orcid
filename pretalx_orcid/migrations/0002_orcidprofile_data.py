@@ -6,13 +6,11 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pretalx_orcid', '0001_initial'),
+        ("pretalx_orcid", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='orcidprofile',
-            name='data',
-            field=models.TextField(null=True),
+            model_name="orcidprofile", name="data", field=models.TextField(null=True),
         ),
     ]

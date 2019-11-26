@@ -10,7 +10,7 @@ from pretalx.common.mixins.views import PermissionRequired
 
 from .forms import OrcidSettingsForm
 from .models import OrcidProfile
-from .orcid import API_URL, AUTHORIZE_URL, OAUTH_URL, ORCID_URL, get_oauth_url
+from .orcid import API_URL, AUTHORIZE_URL, OAUTH_URL, get_oauth_url
 
 
 class OrcidFlowInitial(TemplateFlowStep):
@@ -43,9 +43,18 @@ class OrcidFlowInitial(TemplateFlowStep):
 
     def done(self, request):
         self.request = request
-        profile = getattr(request.user, "orcid_profile", None) or OrcidProfile.objects.create(user=request.user)
+        profile = getattr(
+            request.user, "orcid_profile", None
+        ) or OrcidProfile.objects.create(user=request.user)
         data = self.cfp_session.get("data", {})
-        for key in ("orcid", "access_token", "refresh_token", "scope", "expires_in", "data"):
+        for key in (
+            "orcid",
+            "access_token",
+            "refresh_token",
+            "scope",
+            "expires_in",
+            "data",
+        ):
             value = data.get(f"orcid_{key}")
             if value:
                 setattr(profile, key, value)
@@ -110,23 +119,16 @@ def orcid_oauth(request, event):
     )  # access_token, refresh_token, expires_in, scope, orcid, name
     person_response = requests.get(
         API_URL + "/v2.0/" + orcid_data["orcid"] + "/record",
-        headers={"accept": "application/json", "access token": orcid_data["access_token"], "Authorization type": "Bearer"},
+        headers={
+            "accept": "application/json",
+            "access token": orcid_data["access_token"],
+            "Authorization type": "Bearer",
+        },
     ).json()
-    orcid_organisation = None
-    employments = (
-        person_response.get("activities-summary", {})
-        .get("employments", {})
-        .get("employment-summary", [])
-    )
-    if employments:
-        current = [e for e in employments if e.get("end-date") is None]
-        if current:
-            orcid_organisation = current[0].get("organization").get("name")
 
     request.session.modified = True
     tmpid = request.session["orcid_active"]
     data = request.session["cfp"][tmpid].get("data", {})
-
     data["orcid_data"] = json.dumps(person_response)
     for key, value in orcid_data.items():
         data[f"orcid_{key}"] = value
@@ -140,9 +142,38 @@ def orcid_oauth(request, event):
     profile_initial["biography"] = (
         person_response.get("person", {}).get("biography", {}).get("value")
     )
-    questions_initial[
-        f"question_{request.event.settings.orcid_question_organisation}"
-    ] = orcid_organisation
+
+    if request.event.settings.orcid_question_organisation:
+        orcid_organisation = None
+        orcid_title = None
+        employments = (
+            person_response.get("activities-summary", {})
+            .get("employments", {})
+            .get("employment-summary", [])
+        )
+        if employments:
+            current = [e for e in employments if e.get("end-date") is None]
+            if current:
+                orcid_organisation = current[0].get("organization").get("name")
+                orcid_title = current[0].get("role-title", "")
+        questions_initial[
+            f"question_{request.event.settings.orcid_question_organisation}"
+        ] = orcid_organisation
+        if request.event.settings.orcid_question_title:
+            questions_initial[
+                f"question_{request.event.settings.orcid_question_title}"
+            ] = orcid_title
+
+    name_data = person_response.get("person", {}).get("name", {})
+    if request.event.settings.orcid_question_given_name:
+        questions_initial[
+            f"question_{request.event.settings.orcid_question_given_name}"
+        ] = name_data.get("given-names", {}).get("value", orcid_data.get("name", ""))
+    if request.event.settings.orcid_question_family_name:
+        questions_initial[
+            f"question_{request.event.settings.orcid_question_family_name}"
+        ] = name_data.get("family-name", {}).get("value", orcid_data.get("name", ""))
+
     initial["user"] = user_initial
     initial["profile"] = profile_initial
     initial["questions"] = questions_initial

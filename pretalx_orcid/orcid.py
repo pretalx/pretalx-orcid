@@ -8,6 +8,6 @@ AUTHORIZE_URL = f"{ORCID_URL}/oauth/authorize"
 
 def get_oauth_url(event):
     url = event.urls.base.full() + "p/orcid/oauth"
-    if 'localhost/' in url:
-        url = url.replace('localhost/', 'localhost:8000/')
+    if "localhost/" in url:
+        url = url.replace("localhost/", "localhost:8000/")
     return url

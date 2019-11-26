@@ -5,9 +5,10 @@ This is a plugin for `pretalx`_, connecting pretalx users with ORCID. It adds
 an additional, non-mandatory step in the CfP process, allowing submitters to
 connect their ORCID account with their pretalx account.
 
-Consequently, their name, their biography, and their organisation will be
-pre-filled from ORCID data. (Additional data fields can be added – please open
-a PR if you are missing a field!)
+Consequently, their name (as separate first and last name), their biography,
+their title, and their organisation will be pre-filled from ORCID data.
+(Additional data fields can be added – please open a PR if you are missing a
+field!)
 
 Development setup
 -----------------
