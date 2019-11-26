@@ -1,0 +1,27 @@
+#connect-orcid-button{
+	border: 1px solid #D3D3D3;
+	padding: .3em;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 1px 1px 3px #999;
+	cursor: pointer;
+	color: #999;
+	font-weight: bold;
+	font-size: 1.1em;
+	line-height: 24px;
+	vertical-align: middle;
+    display: inline-block;
+	margin: 4px 8px;
+    margin-left: auto;
+	padding: 8px;
+    padding-right: 16px;
+}
+
+#connect-orcid-button:hover{
+	border: 1px solid #338caf;
+	color: #338caf;
+}
+
+#orcid-id-icon{
+    margin-right: 8px;
+}
