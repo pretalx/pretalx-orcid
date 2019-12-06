@@ -6,10 +6,10 @@ class PluginApp(AppConfig):
     name = "pretalx_orcid"
     verbose_name = "ORCID integration"
     questions = [
-        {"setting": "organisation", "question": _("Organisation"), "is_public": True,},
-        {"setting": "given_name", "question": _("Given name"), "is_public": False,},
-        {"setting": "family_name", "question": _("Family name"), "is_public": False,},
-        {"setting": "title", "question": _("Title"), "is_public": False,},
+        {"setting": "organisation", "question": _("Organisation"), "is_public": True},
+        {"setting": "given_name", "question": _("Given name"), "is_public": False},
+        {"setting": "family_name", "question": _("Family name"), "is_public": False},
+        {"setting": "title", "question": _("Title"), "is_public": False},
     ]
 
     class PretalxPluginMeta:
