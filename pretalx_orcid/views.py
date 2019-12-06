@@ -117,14 +117,20 @@ def orcid_oauth(request, event):
     orcid_data = (
         response.json()
     )  # access_token, refresh_token, expires_in, scope, orcid, name
-    person_response = requests.get(
-        API_URL + "/v2.0/" + orcid_data["orcid"] + "/record",
-        headers={
-            "accept": "application/json",
-            "access token": orcid_data["access_token"],
-            "Authorization type": "Bearer",
-        },
-    ).json()
+    try:
+        person_response = (
+            requests.get(
+                API_URL + "/v2.0/" + orcid_data["orcid"] + "/record",
+                headers={
+                    "accept": "application/json",
+                    "access token": orcid_data["access_token"],
+                    "Authorization type": "Bearer",
+                },
+            ).json()
+            or {}
+        )
+    except Exception:
+        person_response = {"error": response.content.decode()}
 
     request.session.modified = True
     tmpid = request.session["orcid_active"]
