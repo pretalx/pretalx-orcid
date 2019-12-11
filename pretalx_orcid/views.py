@@ -31,11 +31,13 @@ class OrcidFlowInitial(TemplateFlowStep):
 
     def post(self, request):
         request.session["orcid_active"] = None
+        request.session["orcid_params"] = None
         next_url = self.get_next_url(request)
         return redirect(next_url) if next_url else None
 
     def get(self, request):
         request.session["orcid_active"] = request.resolver_match.kwargs["tmpid"]
+        request.session["orcid_params"] = request.GET.urlencode()
         return super().get(request)
 
     def is_completed(self, request):
@@ -184,4 +186,5 @@ def orcid_oauth(request, event):
     initial["profile"] = profile_initial
     initial["questions"] = questions_initial
     request.session["cfp"][tmpid]["initial"] = initial
-    return redirect(request.event.cfp.urls.submit + tmpid + "/questions/")
+    params = request.session.get("orcid_params")
+    return redirect(request.event.cfp.urls.submit + tmpid + "/questions/" + (f"?{params}" if params else ""))
