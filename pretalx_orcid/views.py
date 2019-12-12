@@ -141,29 +141,27 @@ def orcid_oauth(request, event):
     for key, value in orcid_data.items():
         data[f"orcid_{key}"] = value
 
-    initial = request.session["cfp"][tmpid].get("initial", {})
-    user_initial = initial.get("user", {})
-    profile_initial = initial.get("profile", {})
-    questions_initial = initial.get("questions", {})
+    initial = request.session["cfp"][tmpid].get("initial") or {}
+    user_initial = initial.get("user") or {}
+    profile_initial = initial.get("profile") or {}
+    questions_initial = initial.get("questions") or {}
     user_initial["register_name"] = orcid_data.get("name")
     profile_initial["name"] = orcid_data.get("name")
     profile_initial["biography"] = (
-        person_response.get("person", {}).get("biography", {}).get("value")
-    )
+        (person_response.get("person") or {}).get("biography") or {}
+    ).get("value")
 
     if request.event.settings.orcid_question_organisation:
         orcid_organisation = None
         orcid_title = None
         employments = (
-            person_response.get("activities-summary", {})
-            .get("employments", {})
-            .get("employment-summary", [])
-        )
-        if employments:
+            (person_response.get("activities-summary") or {}).get("employments") or {}
+        ).get("employment-summary", [])
+        if employments and isinstance(employments, list):
             current = [e for e in employments if e.get("end-date") is None]
             if current:
-                orcid_organisation = current[0].get("organization").get("name")
-                orcid_title = current[0].get("role-title", "")
+                orcid_organisation = (current[0].get("organization") or {}).get("name")
+                orcid_title = current[0].get("role-title") or ""
         questions_initial[
             f"question_{request.event.settings.orcid_question_organisation}"
         ] = orcid_organisation
@@ -172,19 +170,32 @@ def orcid_oauth(request, event):
                 f"question_{request.event.settings.orcid_question_title}"
             ] = orcid_title
 
-    name_data = person_response.get("person", {}).get("name", {})
+    name_data = (person_response.get("person") or {}).get("name") or {}
     if request.event.settings.orcid_question_given_name:
         questions_initial[
             f"question_{request.event.settings.orcid_question_given_name}"
-        ] = name_data.get("given-names", {}).get("value", orcid_data.get("name", ""))
+        ] = (
+            (name_data.get("given-names") or {}).get("value")
+            or orcid_data.get("name")
+            or ""
+        )
     if request.event.settings.orcid_question_family_name:
         questions_initial[
             f"question_{request.event.settings.orcid_question_family_name}"
-        ] = name_data.get("family-name", {}).get("value", orcid_data.get("name", ""))
+        ] = (
+            (name_data.get("family-name") or {}).get("value")
+            or orcid_data.get("name")
+            or ""
+        )
 
     initial["user"] = user_initial
     initial["profile"] = profile_initial
     initial["questions"] = questions_initial
     request.session["cfp"][tmpid]["initial"] = initial
     params = request.session.get("orcid_params")
-    return redirect(request.event.cfp.urls.submit + tmpid + "/questions/" + (f"?{params}" if params else ""))
+    return redirect(
+        request.event.cfp.urls.submit
+        + tmpid
+        + "/questions/"
+        + (f"?{params}" if params else "")
+    )
