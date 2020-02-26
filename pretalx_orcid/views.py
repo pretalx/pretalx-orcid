@@ -43,6 +43,12 @@ class OrcidFlowInitial(TemplateFlowStep):
     def is_completed(self, request):
         return True
 
+    def is_applicable(self, request):
+        profile = getattr(request.user, "orcid_profile", None)
+        if profile and getattr(profile, "access_token", None):
+            return False
+        return True
+
     def done(self, request):
         self.request = request
         profile = getattr(
