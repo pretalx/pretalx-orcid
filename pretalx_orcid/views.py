@@ -60,7 +60,6 @@ class OrcidFlowInitial(TemplateFlowStep):
             value = data.get(f"orcid_{key}")
             if value:
                 setattr(profile, key, value)
-        print(profile.__dict__)
         profile.save()
 
     @property
