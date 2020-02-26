@@ -7,21 +7,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 01:12+0000\n"
+"POT-Creation-Date: 2020-02-11 16:24+0000\n"
 "PO-Revision-Date: 2019-11-26 03:20+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 2.2.4\n"
 
+#: local/pretalx-orcid/pretalx_orcid/__init__.py:9
+msgid "Organisation"
+msgstr ""
+
 #: local/pretalx-orcid/pretalx_orcid/__init__.py:10
+msgid "Given name"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/__init__.py:11
+msgid "Family name"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/__init__.py:12
+msgid "Title"
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/__init__.py:16
 msgid "ORCID integration"
 msgstr "ORCID-Anbindung"
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:12
+#: local/pretalx-orcid/pretalx_orcid/__init__.py:18
 msgid "Gather speaker data from ORCID"
 msgstr "Daten über Vortragende von ORCID importieren"
 
@@ -62,31 +78,41 @@ msgstr ""
 msgid "Save"
 msgstr "Speichern"
 
-#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:10
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:15
 msgid "ORCID Login"
 msgstr "ORCID-Login"
 
-#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:13
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:18
 msgid ""
 "If you want to, you can authenticate with ORCID – your name, organisation, "
 "and ORCID ID will be pre-filled from your ORCID account."
 msgstr ""
 "Wenn du möchtet, kannst du dich hier mit ORCID anmelden – dein Name, deine "
-"Organisation, und deine ORCID-ID werden dann direkt aus deinem ORCID-"
-"Account aus ausgefüllt."
+"Organisation, und deine ORCID-ID werden dann direkt aus deinem ORCID-Account "
+"aus ausgefüllt."
 
-#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:24
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:23
+msgid ""
+"ORCID is an independent non-profit organization that provides a persistent "
+"identifier – an ORCID iD – that distinguishes you from other researchers and "
+"a mechanism for linking your research outputs and activities to your iD. "
+"ORCID is integrated into many systems used by publishers, funders, "
+"institutions, and other research-related services. Learn more at <a href="
+"\"https://orcid.org\">orcid.org</a>."
+msgstr ""
+
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:41
 msgid "Continue without ORCID"
 msgstr "Ohne ORCID fortfahren"
 
-#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:30
+#: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:47
 msgid "Back"
 msgstr "Zurück"
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:51
+#: local/pretalx-orcid/pretalx_orcid/views.py:68
 msgid "ORCID login"
 msgstr "ORCID-Login"
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:77
+#: local/pretalx-orcid/pretalx_orcid/views.py:94
 msgid "The ORCID token has been saved."
 msgstr "Das ORCID-Token wurde gespeichert"
