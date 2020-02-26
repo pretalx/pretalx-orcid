@@ -1,6 +1,6 @@
 from django.dispatch import receiver
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from pretalx.cfp.signals import cfp_steps
 from pretalx.orga.signals import activate_event, nav_event_settings
 
