@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-11 16:24+0000\n"
+"POT-Creation-Date: 2020-04-14 00:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,10 +102,10 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:68
+#: local/pretalx-orcid/pretalx_orcid/views.py:73
 msgid "ORCID login"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:94
+#: local/pretalx-orcid/pretalx_orcid/views.py:99
 msgid "The ORCID token has been saved."
 msgstr ""

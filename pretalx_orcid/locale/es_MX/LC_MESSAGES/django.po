@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-14 00:25+0000\n"
-"PO-Revision-Date: 2019-11-26 03:20+0100\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: de_DE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: local/pretalx-orcid/pretalx_orcid/__init__.py:9
 msgid "Organisation"
@@ -35,33 +36,32 @@ msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/__init__.py:16
 msgid "ORCID integration"
-msgstr "ORCID-Anbindung"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/__init__.py:18
 msgid "Gather speaker data from ORCID"
-msgstr "Daten über Vortragende von ORCID importieren"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/forms.py:8
 msgid "Client ID"
-msgstr "Client-ID"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/forms.py:9
 msgid "Client Secret"
-msgstr "Client-Secret"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/models.py:10
 msgid "ORCID"
-msgstr "ORCID"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/signals.py:35
 msgid ""
 "Please configure your ORCID access settings or disable the ORCID plugin!"
 msgstr ""
-"Bitte konfiguriere die ORCID-Zugangsdaten oder schalte das ORCID-Plugin ab!"
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/settings.html:7
 msgid "Set up ORCID integration"
-msgstr "ORCID-Anbindung konfigurieren"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/settings.html:9
 #, python-format
@@ -70,26 +70,20 @@ msgid ""
 "developer tools</a> to acquire your API credentials. Please enter this URL "
 "as your redirect URL:"
 msgstr ""
-"Bitte öffne die <a href=\"%(link)s\" target=_blank rel=noopener>ORCID-"
-"Entwickler-Einstellungen</a>, um die API-Zugangsdaten einzurichten. Als "
-"\"redirect URL\" gib bitte die folgende URL an:"
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/settings.html:28
 msgid "Save"
-msgstr "Speichern"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:15
 msgid "ORCID Login"
-msgstr "ORCID-Login"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:18
 msgid ""
 "If you want to, you can authenticate with ORCID – your name, organisation, "
 "and ORCID ID will be pre-filled from your ORCID account."
 msgstr ""
-"Wenn du möchtet, kannst du dich hier mit ORCID anmelden – dein Name, deine "
-"Organisation, und deine ORCID-ID werden dann direkt aus deinem ORCID-Account "
-"aus ausgefüllt."
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:23
 msgid ""
@@ -103,16 +97,16 @@ msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:41
 msgid "Continue without ORCID"
-msgstr "Ohne ORCID fortfahren"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/templates/pretalx_orcid/submission_step.html:47
 msgid "Back"
-msgstr "Zurück"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/views.py:73
 msgid "ORCID login"
-msgstr "ORCID-Login"
+msgstr ""
 
 #: local/pretalx-orcid/pretalx_orcid/views.py:99
 msgid "The ORCID token has been saved."
-msgstr "Das ORCID-Token wurde gespeichert"
+msgstr ""
