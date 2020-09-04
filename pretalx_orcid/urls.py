@@ -1,4 +1,5 @@
-from django.conf.urls import url
+from django.urls import re_path
+
 from pretalx.event.models.event import SLUG_CHARS
 
 from .views import OrcidSettings, orcid_oauth
@@ -9,10 +10,10 @@ urlpatterns = [
     #       retrieves orcid data and sets intial for user/person form
     #       redirects back to cfp based on session data
     # TODO: user URL to update orcid data (laters)
-    url(
+    re_path(
         fr"^orga/event/(?P<event>[{SLUG_CHARS}]+)/settings/p/orcid/$",
         OrcidSettings.as_view(),
         name="settings",
     ),
-    url(fr"^(?P<event>[{SLUG_CHARS}]+)/p/orcid/oauth$", orcid_oauth, name="oauth",),
+    re_path(fr"^(?P<event>[{SLUG_CHARS}]+)/p/orcid/oauth$", orcid_oauth, name="oauth",),
 ]
