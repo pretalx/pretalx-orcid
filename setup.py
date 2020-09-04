@@ -24,7 +24,7 @@ cmdclass = {"build": CustomBuild}
 
 setup(
     name="pretalx-orcid",
-    version="0.0.7",
+    version="0.0.8",
     description="Gather speaker data from ORCID",
     long_description=long_description,
     url="https://pretalx.com/pretalx/pretalx-orcid",
