@@ -55,6 +55,3 @@ class PluginApp(AppConfig):
             if question:
                 question.active = False
                 question.save()
-
-
-default_app_config = "pretalx_orcid.PluginApp"
