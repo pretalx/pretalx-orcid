@@ -1,6 +1,9 @@
 ORCID integration
 ==========================
 
+**This pretalx plugin is not currently maintained.** Please get in touch
+if you have interest in maintaining it or sponsoring maintenance.
+
 This is a plugin for `pretalx`_, connecting pretalx users with ORCID. It adds
 an additional, non-mandatory step in the CfP process, allowing submitters to
 connect their ORCID account with their pretalx account.
