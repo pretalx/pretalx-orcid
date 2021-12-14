@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-14 00:25+0000\n"
+"POT-Creation-Date: 2021-10-26 13:05+0000\n"
 "PO-Revision-Date: 2019-11-26 03:20+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.4\n"
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:9
+#: local/pretalx-orcid/pretalx_orcid/apps.py:9
 msgid "Organisation"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:10
+#: local/pretalx-orcid/pretalx_orcid/apps.py:10
 msgid "Given name"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:11
+#: local/pretalx-orcid/pretalx_orcid/apps.py:11
 msgid "Family name"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:12
+#: local/pretalx-orcid/pretalx_orcid/apps.py:12
 msgid "Title"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:16
+#: local/pretalx-orcid/pretalx_orcid/apps.py:16
 msgid "ORCID integration"
 msgstr "ORCID-Anbindung"
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:18
+#: local/pretalx-orcid/pretalx_orcid/apps.py:18
 msgid "Gather speaker data from ORCID"
 msgstr "Daten über Vortragende von ORCID importieren"
 
@@ -53,7 +53,7 @@ msgstr "Client-Secret"
 msgid "ORCID"
 msgstr "ORCID"
 
-#: local/pretalx-orcid/pretalx_orcid/signals.py:35
+#: local/pretalx-orcid/pretalx_orcid/signals.py:36
 msgid ""
 "Please configure your ORCID access settings or disable the ORCID plugin!"
 msgstr ""
@@ -109,10 +109,10 @@ msgstr "Ohne ORCID fortfahren"
 msgid "Back"
 msgstr "Zurück"
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:73
+#: local/pretalx-orcid/pretalx_orcid/views.py:74
 msgid "ORCID login"
 msgstr "ORCID-Login"
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:99
+#: local/pretalx-orcid/pretalx_orcid/views.py:100
 msgid "The ORCID token has been saved."
 msgstr "Das ORCID-Token wurde gespeichert"

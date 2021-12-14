@@ -1,7 +1,6 @@
 from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-
 from pretalx.cfp.signals import cfp_steps
 from pretalx.orga.signals import activate_event, nav_event_settings
 
@@ -21,7 +20,8 @@ def orcid_settings(sender, request, **kwargs):
         {
             "label": "ORCID",
             "url": reverse(
-                "plugins:pretalx_orcid:settings", kwargs={"event": request.event.slug},
+                "plugins:pretalx_orcid:settings",
+                kwargs={"event": request.event.slug},
             ),
             "active": request.resolver_match.url_name == "plugins:orcid:settings",
         }

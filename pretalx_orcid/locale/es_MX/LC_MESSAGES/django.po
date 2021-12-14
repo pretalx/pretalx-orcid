@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-14 00:25+0000\n"
+"POT-Creation-Date: 2021-10-26 13:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:9
+#: local/pretalx-orcid/pretalx_orcid/apps.py:9
 msgid "Organisation"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:10
+#: local/pretalx-orcid/pretalx_orcid/apps.py:10
 msgid "Given name"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:11
+#: local/pretalx-orcid/pretalx_orcid/apps.py:11
 msgid "Family name"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:12
+#: local/pretalx-orcid/pretalx_orcid/apps.py:12
 msgid "Title"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:16
+#: local/pretalx-orcid/pretalx_orcid/apps.py:16
 msgid "ORCID integration"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/__init__.py:18
+#: local/pretalx-orcid/pretalx_orcid/apps.py:18
 msgid "Gather speaker data from ORCID"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "ORCID"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/signals.py:35
+#: local/pretalx-orcid/pretalx_orcid/signals.py:36
 msgid ""
 "Please configure your ORCID access settings or disable the ORCID plugin!"
 msgstr ""
@@ -103,10 +103,10 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:73
+#: local/pretalx-orcid/pretalx_orcid/views.py:74
 msgid "ORCID login"
 msgstr ""
 
-#: local/pretalx-orcid/pretalx_orcid/views.py:99
+#: local/pretalx-orcid/pretalx_orcid/views.py:100
 msgid "The ORCID token has been saved."
 msgstr ""

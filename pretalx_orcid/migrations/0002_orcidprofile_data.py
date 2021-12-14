@@ -11,6 +11,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name="orcidprofile", name="data", field=models.TextField(null=True),
+            model_name="orcidprofile",
+            name="data",
+            field=models.TextField(null=True),
         ),
     ]
